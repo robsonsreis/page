@@ -113,7 +113,31 @@
     	import { createChat } from 'https://robsonsreis.github.io/page/chat.js';
     
     	createChat({
-    		webhookUrl: 'https://hookncst.moduloexpert.com.br/webhook/4340ff2a-540e-4b10-a045-c095779aa8aa/chat'
+    		webhookUrl: 'https://hookncst.moduloexpert.com.br/webhook/4340ff2a-540e-4b10-a045-c095779aa8aa/chat',
+        	webhookConfig: {
+        		method: 'POST',
+        		headers: {}
+        	},
+        	target: '#n8n-chat',
+        	mode: 'window',
+        	chatInputKey: 'chatInput',
+        	chatSessionKey: 'sessionId',
+        	metadata: {},
+        	showWelcomeScreen: false,
+        	defaultLanguage: 'en',
+        	initialMessages: [
+        		'Tudo bem! 😉',
+        		'Meu nome é Renato. Como eu posso te ajudar?'
+        	],
+        	i18n: {
+        		en: {
+        			title: 'Tudo bem! 👋',
+        			subtitle: "Iniciar conversa. Estamos aqui 24/7 para te ajudar.",
+        			footer: '',
+        			getStarted: 'Nova Conversa',
+        			inputPlaceholder: 'Digite sua pergunta..',
+        		},
+        	},
     	});
     </script>
 </body>
