@@ -60,6 +60,27 @@
         .social-links a:hover {
             text-decoration: underline;
         }
+        .gallery {
+          background: #EEE;
+        }
+        
+        .gallery-cell {
+          width: 66%;
+          height: 200px;
+          margin-right: 10px;
+          background: #8C8;
+          counter-increment: gallery-cell;
+        }
+        
+        /* cell number */
+        .gallery-cell:before {
+          display: block;
+          text-align: center;
+          content: counter(gallery-cell);
+          line-height: 200px;
+          font-size: 80px;
+          color: white;
+        }
     </style>
 </head>
 <body>
@@ -77,11 +98,15 @@
         <section>
             <h2>Projetos</h2>
             <p>Aqui estão alguns dos meus projetos:</p>
-            <ul>
-                <li><strong>Projeto 1</strong> - Breve descrição do projeto.</li>
-                <li><strong>Projeto 2</strong> - Breve descrição do projeto.</li>
-                <li><strong>Projeto 3</strong> - Breve descrição do projeto.</li>
-            </ul>
+                <!-- Carousel -->
+                <div class="gallery js-flickity"
+                  data-flickity-options='{ "wrapAround": true }'>
+                  <div class="gallery-cell"></div>
+                  <div class="gallery-cell"></div>
+                  <div class="gallery-cell"></div>
+                  <div class="gallery-cell"></div>
+                  <div class="gallery-cell"></div>
+                </div>
         </section>
         
         <section>
