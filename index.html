@@ -1,161 +1,150 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-    <title>Portfólio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        section {
-            background-color: white;
-            border-radius: 5px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            margin: 0;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #2c3e50;
-            color: white;
-        }
-        
-        .social-links {
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-        * {
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-        }
-        .gallery {
-          background: #EEE;
-        }
-        
-        .gallery-cell {
-          width: 66%;
-          height: 200px;
-          margin-right: 10px;
-          background: #8C8;
-          counter-increment: gallery-cell;
-        }
-        
-        /* cell number */
-        .gallery-cell:before {
-          display: block;
-          text-align: center;
-          content: counter(gallery-cell);
-          line-height: 200px;
-          font-size: 80px;
-          color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Analista de Dados</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-images img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .prev-btn {
+      left: 10px;
+    }
+    .next-btn {
+      right: 10px;
+    }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .indicator {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .indicator.active {
+      background: white;
+    }
+    @media (max-width: 640px) {
+      .carousel-btn {
+        padding: 8px;
+        font-size: 16px;
+      }
+      .carousel {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>Portfólio</h1>
-        <p>Bem-vindo ao meu site de Portfólios</p>
-    </header>
-    
-    <div class="container">
-        <section>
-            <h2>Sobre</h2>
-            <p>Aqui você encontrará informações sobre meus projetos e contatos!</p>
-        </section>
-        
-        <section>
-            <h2>Projetos</h2>
-            <p>Aqui estão alguns dos meus projetos:</p>
-                <!-- Carousel -->
-                <div class="gallery js-flickity"
-                  data-flickity-options='{ "wrapAround": true }'>
-                  <div class="gallery-cell"></div>
-                  <div class="gallery-cell"></div>
-                  <div class="gallery-cell"></div>
-                  <div class="gallery-cell"></div>
-                  <div class="gallery-cell"></div>
-                </div>
-        </section>
-        
-        <section>
-            <h2>Contato</h2>
-            <p>Você pode entrar em contato comigo através do email: <a href="mailto:robsonsreis.contato@gmail.com">robsonsreis.contato@gmail.com</a></p>
-        </section>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl font-bold">Portfólio de Analista de Dados</h1>
+      <p class="mt-2 text-lg">Projetos que transformam dados em insights</p>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 GitHub Pages</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/robsonsreis" target="_blank">LinkedIn</a>
-            <a href="https://instagram.com/_robsonsreis" target="_blank">Instagram</a>
+  </header>
+
+  <!-- Portfolio Section -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-center mb-8">Meus Projetos</h2>
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="https://placehold.co/800x400/38761d/FFFFFF?dashboard" alt="Dashboard de Vendas">
+          <img src="https://placehold.co/800x400/9e0000/FFFFFF?data-visualization" alt="Visualização de Dados">
+          <img src="https://placehold.co/800x400/0b5394/FFFFFF?machine-learning" alt="Modelo Preditivo">
         </div>
-    </footer>
-    <script type="module">
-    	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-        
-    	createChat({
-    		webhookUrl: 'https://hookncst.moduloexpert.com.br/webhook/4340ff2a-540e-4b10-a045-c095779aa8aa/chat',
-        	webhookConfig: {
-        		method: 'POST',
-        		headers: {}
-        	},
-        	target: '#n8n-chat',
-        	mode: 'window',
-        	chatInputKey: 'chatInput',
-        	chatSessionKey: 'sessionId',
-        	metadata: {},
-        	showWelcomeScreen: false,
-        	defaultLanguage: 'pt_BR',
-        	initialMessages: [
-        		'Oi, tudo bem! 😉',
-        		'Eu sou Bob seu assistente virtual. Como eu posso te ajudar?'
-        	],
-        	i18n: {
-        		pt_BR: {
-        			title: 'Chat',
-        			subtitle: "Disponível a qualquer hora para te ajudar!",
-        			footer: '',
-        			getStarted: 'Nova Conversa',
-        			inputPlaceholder: 'Digite sua pergunta...',
-        		},
-        	},
-    	});
-    </script>
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+        <div class="carousel-indicators">
+          Todos incluem aqui os indicadores gerados dinamicamente
+        </div>
+      </div>
+      <div class="text-center mt-6">
+        <p class="text-gray-700">Explore meus projetos de análise de dados, incluindo dashboards interativos e modelos preditivos.</p>
+        <a href="https://github.com/robsonsreis" class="inline-block mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Ver mais no GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const carouselImages = document.querySelector('.carousel-images');
+    const images = document.querySelectorAll('.carousel-images img');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    let currentIndex = 0;
+
+    // Create indicators dynamically
+    images.forEach((_, index) => {
+      const indicator = document.createElement('div');
+      indicator.classList.add('indicator');
+      if (index === 0) indicator.classList.add('active');
+      indicator.addEventListener('click', () => goToSlide(index));
+      indicatorsContainer.appendChild(indicator);
+    });
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+      carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      if (currentIndex >= images.length) currentIndex = 0;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    // Auto-slide every 5 seconds
+    setInterval(() => goToSlide(currentIndex + 1), 5000);
+  </script>
 </body>
 </html>
