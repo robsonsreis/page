@@ -15,12 +15,18 @@
     }
     .carousel-images {
       display: flex;
+      width: calc(100% * 3); /* Ajusta para o número de imagens (3 no exemplo) */
       transition: transform 0.5s ease-in-out;
+    }
+    .carousel-images a {
+      flex: 0 0 100%; /* Cada link/imagem ocupa 100% da largura do contêiner */
+      width: 100%;
     }
     .carousel-images img {
       width: 100%;
       height: auto;
       object-fit: cover;
+      cursor: pointer;
     }
     .carousel-btn {
       position: absolute;
@@ -70,10 +76,10 @@
 </head>
 <body class="bg-gray-100 font-sans">
   <!-- Header -->
-  <header class="bg-gray-800 text-white py-6">
+  <header class="bg-gray-600 text-white py-6">
     <div class="container mx-auto text-center">
       <h1 class="text-3xl font-bold">Portfólio</h1>
-      <p class="mt-2 tex t-lg">Projetos que transformam dados em insights</p>
+      <p class="mt-2 text-lg">Projetos que transformam dados em insights</p>
     </div>
   </header>
 
@@ -83,19 +89,25 @@
       <h2 class="text-2xl font-semibold text-center mb-8">Meus Projetos</h2>
       <div class="carousel">
         <div class="carousel-images">
-          <a href="https://github.com/robsonsreis/?1" target="_blank"><img src="https://placehold.co/800x400/38761d/FFFFFF?text=Dashboard" alt="Dashboard de Vendas"></a>
-          <a href="https://github.com/robsonsreis/?2" target="_blank"><img src="https://placehold.co/800x400/9e0000/FFFFFF?text=Report" alt="Relatório"></a>
-          <a href="https://github.com/robsonsreis/?3" target="_blank"><img src="https://placehold.co/800x400/0b5394/FFFFFF?text=Machine+Learning" alt="Modelo Preditivo"></a>
+          <a href="https://github.com/robsonsreis/?tag=projeto1" target="_blank">
+            <img src="https://placehold.co/800x400/38761d/FFFFFF?text=Dashboard+de+Vendas" alt="Dashboard de Vendas">
+          </a>
+          <a href="https://github.com/robsonsreis/?tag=projeto2" target="_blank">
+            <img src="https://placehold.co/800x400/9e0000/FFFFFF?text=Report" alt="Relatório">
+          </a>
+          <a href="https://github.com/robsonsreis/?tag=projeto3" target="_blank">
+            <img src="https://placehold.co/800x400/0b5394/FFFFFF?text=Machine+Learning" alt="Modelo Preditivo">
+          </a>
         </div>
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
         <div class="carousel-indicators">
-          @robsonsreis
+          <!-- Indicadores gerados dinamicamente pelo JS -->
         </div>
       </div>
       <div class="text-center mt-6">
-        <p class="text-gray-700">Explore meus projetos de análise de dados.</p>
-        <a href="https://github.com/robsonsreis" class="inline-block mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-400">Ver mais no GitHub</a>
+        <p class="text-gray-700">Clique nas imagens para explorar meus projetos de análise de dados, incluindo dashboards interativos e relatórios.</p>
+        <a href="https://github.com/robsonsreis" class="inline-block mt-4 bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700">Ver mais no GitHub</a>
       </div>
     </div>
   </section>
@@ -127,7 +139,7 @@
     const indicators = document.querySelectorAll('.indicator');
 
     function updateCarousel() {
-      carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+      carouselImages.style.transform = `translateX(-${currentIndex * 100 / images.length}%)`;
       indicators.forEach((indicator, index) => {
         indicator.classList.toggle('active', index === currentIndex);
       });
